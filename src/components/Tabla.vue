@@ -71,6 +71,7 @@
 
 <script>
 	import Modal from './ModalTest.vue'
+	import baseUrl from '../../config'
 	export default{
 		name: 'tabla',
 		data() {
@@ -83,7 +84,7 @@
 		},
 		methods : {
 			getBooks(){
-				this.$http.get('http://localhost:8000/books').then((response)=>{
+				this.$http.get(`${baseUrl.uri}/books`).then((response)=>{
 					this.books=response.body;
 				});
 			},
