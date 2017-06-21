@@ -70,6 +70,7 @@
 </template>
 
 <script>
+	import baseUrl from '../../config'
 	export default{
 		name: 'form',
 		data() {
@@ -116,7 +117,7 @@
 				}else{
 					this.book.keywords = this.keywordsRaw.split(',');
 					this.book.copias_disponible=this.book.copias_total;
-					this.$http.put('http://localhost:8000/books/update/'+this.id,this.book).then((response)=>{
+					this.$http.put(`${baseUrl.uri}/books/update/`+this.id,this.book).then((response)=>{
 						if(response.body.success){
 							swal({
 								title: 'Modificado con exito!',
@@ -149,7 +150,7 @@
 			if(this.checkRoute()===2){
 				this.modificar=true;
 				this.id=this.$route.path.substr(14,this.$route.path.length);
-				this.$http.get('http://localhost:8000/books/searchbyid/'+this.id).then((response)=>{
+				this.$http.get(`${baseUrl.uri}/books/searchbyid/`+this.id).then((response)=>{
 					if(response.body.success){
 						this.book=response.body.libro;
 						this.keywordsRaw='';

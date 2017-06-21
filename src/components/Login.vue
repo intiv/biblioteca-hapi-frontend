@@ -103,7 +103,7 @@
 					scope.push('student');
 				}
 				nUser.scope = scope;
-				this.$http.post('http://localhost:8000/register', nUser).then((response)=>{
+				this.$http.post(`${baseUrl}/register`, nUser).then((response)=>{
 					if(response.body.success === true){
 						swal({
 							title: 'Registered!',
