@@ -46,7 +46,7 @@
 </template>
 
 <script>
-
+	import baseUrl from '../../config'
 	export default{
 		name: 'login',
 		data() {
@@ -64,7 +64,7 @@
 					password: this.user.password
 				}
 				if(this.user.username.length>0 && this.user.password.length>0){
-					this.$http.post('http://localhost:8000/login',User).then((response)=>{
+					this.$http.post(`${baseUrl.uri}/login`,User).then((response)=>{
 						if(response.body.success===true){
 							swal(
 								{

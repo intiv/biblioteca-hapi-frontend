@@ -79,7 +79,7 @@
 	  		}
 	  	},
 	  	Logout(){
-	  		this.$http.put('http://localhost:8000/logout').then((response)=>{
+	  		this.$http.put(`${baseUrl.uri}/logout`).then((response)=>{
 	  			this.$router.push('/login');
 	  		});
 	  	}
